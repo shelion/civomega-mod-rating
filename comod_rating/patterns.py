@@ -14,5 +14,10 @@ PATTERNS = frozenset([
 
 """
 
-PATTERNS = frozenset([
-])
+VOTE_PATTERNS = frozenset([
+    "which votes are about {topic}?",
+    "what votes are about {topic}?"
+    "How did {person} vote on {bill}?"
+    ])
+
+PATTERNS = VOTE_PATTERNS

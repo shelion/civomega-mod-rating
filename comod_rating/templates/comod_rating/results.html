@@ -1,0 +1,30 @@
+ {% if results|length == 0 %}
+  <p>We couldn't find any votes.</p>
+{% else %}
+  <p>{{ count }} results total. Here are the first {{ results|length }}:</p>
+
+  <table class="tablesorter">
+   <thead>
+   <tr>
+   <th style="width: 120px;">Bill</th>
+   <th>Question</th>
+   <th style="width: 100px;">Who voted?</th>
+   </tr>
+   </thead>
+   <tbody>
+   {% for item in results %}
+   <tr>
+   <td><a href="{{item.urls.congress}}" target="_blank">{{ item.bill_id }}</a></td>
+   <td>
+   {{ item.question }}
+   </td>
+   <td>{{ item.chamber }}</td>
+   </tr>
+   {% endfor %}
+   </tbody>
+  </table>
+  <script type="text/javascript">
+   $(".tablesorter").tablesorter();
+  </script>
+  <p><em>Data provided by the <a href="http://sunlightfoundation.com">Sunlight Foundation</a></em></p>
+{% endif %}
